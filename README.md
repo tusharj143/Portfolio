@@ -44,3 +44,12 @@ Azure Data Engineer with hands-on experience in building scalable data pipelines
 - Databricks Generative AI Fundamentals  
 
 ## 📂 Project Structure (Key Folders/Files)
+
+├── public/              # Static assets (images, sequences, etc.) ├── resume/              # Resume files (PDF, parsed data) ├── src/                 # Main application code │   ├── app/             # Next.js App Router pages & layouts │   ├── components/      # Reusable UI components │   └── ...
+├── next.config.mjs      # Next.js configuration ├── tailwind.config.ts   # Tailwind CSS config ├── tsconfig.json        # TypeScript configuration ├── package.json         # Dependencies └── parse.js             # Resume parsing script (if applicable)
+
+📄 License
+MIT License – feel free to use as inspiration for your own portfolio (but please don't copy content directly).
+
+📬 Connect with Me
+LinkedIn: https://www.linkedin.com/in/tushar-jadhav-175974154/
