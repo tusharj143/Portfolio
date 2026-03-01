@@ -19,34 +19,38 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({ framePaths }) => {
         offset: ["start start", "end end"],
     });
 
-    // Preload images
+    // Preload images — only track images that actually loaded successfully
     useEffect(() => {
         if (!framePaths.length) return;
 
-        const loadedImages: HTMLImageElement[] = [];
-        let loadedCount = 0;
+        const loaded: HTMLImageElement[] = [];
+        let settled = 0;
 
-        for (let i = 0; i < framePaths.length; i++) {
+        framePaths.forEach((src) => {
             const img = new Image();
-            img.src = framePaths[i];
-
+            img.src = src;
             img.onload = () => {
-                loadedCount++;
-                if (loadedCount === framePaths.length) {
-                    setImages(loadedImages);
+                loaded.push(img);
+                settled++;
+                if (settled === framePaths.length) {
+                    // Sort by naturalWidth is not enough — sort by src order
+                    // Re-sort to maintain original path order
+                    const ordered = framePaths
+                        .map((p) => loaded.find((i) => i.src.endsWith(p) || i.src === p || i.src === location.origin + p))
+                        .filter((i): i is HTMLImageElement => !!i);
+                    setImages(ordered.length > 0 ? ordered : loaded);
                     setIsLoaded(true);
                 }
             };
-            // Simple error handling to prevent getting stuck
             img.onerror = () => {
-                loadedCount++;
-                if (loadedCount === framePaths.length) {
-                    setImages(loadedImages);
+                // Skip this frame — do not push to loaded
+                settled++;
+                if (settled === framePaths.length) {
+                    setImages(loaded);
                     setIsLoaded(true);
                 }
             };
-            loadedImages.push(img);
-        }
+        });
     }, [framePaths]);
 
     // Update canvas when frame changes
