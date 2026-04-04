@@ -18,6 +18,13 @@ const certs = [
         badgeLabel: "View Credential",
         icon: "https://upload.wikimedia.org/wikipedia/commons/6/63/Databricks_Logo.png",
     },
+    {
+        id: 3,
+        name: "Microsoft Certified: Fabric Data Engineer Associate",
+        credentialUrl: "https://learn.microsoft.com/en-us/users/tusharjadhav-7932/credentials/f9c95a63d5a7c4a8?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+        badgeLabel: "View Credential",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    },
 ];
 
 export const Certifications = () => {
@@ -48,7 +55,7 @@ export const Certifications = () => {
                             <div className="flex items-center gap-4 relative z-10">
                                 <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0 p-2 shadow-lg shadow-red-500/20">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img src={cert.icon} alt="Databricks" className="w-full h-auto object-contain" />
+                                    <img src={cert.icon} alt={cert.name} className="w-full h-auto object-contain" />
                                 </div>
                                 <h3 className="text-lg font-semibold text-white tracking-tight leading-snug">
                                     {cert.name}
