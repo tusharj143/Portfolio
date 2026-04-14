@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { ActionBadge } from "@/components/ui/ActionBadge";
 
 const socials = [
     {
@@ -138,12 +140,9 @@ export const Contact = () => {
 
                                 {/* CTA Pill */}
                                 <div className="relative z-10 shrink-0">
-                                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white/70 group-hover:text-white bg-white/5 group-hover:bg-white/15 border border-white/10 group-hover:border-white/30 px-3 py-1.5 rounded-full transition-all duration-300">
+                                    <ActionBadge>
                                         {social.cta}
-                                        <svg className="w-3 h-3 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
-                                    </span>
+                                    </ActionBadge>
                                 </div>
                             </motion.a>
                         ))}
@@ -156,6 +155,6 @@ export const Contact = () => {
                     <span>Azure Data Engineer</span>
                 </div>
             </div>
-        </footer>
+        </SectionWrapper>
     );
 };

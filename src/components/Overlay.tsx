@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { HERO_HEIGHT_VH } from "@/lib/constants";
 
 export const Overlay = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ export const Overlay = () => {
         <div
             ref={containerRef}
             className={cn(
-                "absolute top-0 left-0 w-full h-[500vh] z-10 pointer-events-none"
+                `absolute top-0 left-0 w-full h-[${HERO_HEIGHT_VH}vh] z-10 pointer-events-none`
             )}
         >
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">

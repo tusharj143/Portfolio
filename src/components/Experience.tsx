@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { ScrollRevealCard } from "@/components/ui/ScrollRevealCard";
 
 const experiences = [
     {
@@ -40,27 +42,13 @@ const experiences = [
 
 export const Experience = () => {
     return (
-        <section className="relative z-20 bg-background py-32 px-6 md:px-12 w-full">
-            <div className="max-w-4xl mx-auto">
-                <div className="mb-20 text-center md:text-left">
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">
-                        Experience
-                    </h2>
-                    <div className="w-24 h-1 bg-white/20 mt-6 mx-auto md:mx-0" />
-                </div>
-
-                <div className="flex flex-col gap-16">
+        <SectionWrapper heading="Experience" headingAlign="left" className="py-32">
+            <div className="flex flex-col gap-16">
                     {experiences.map((exp, i) => (
-                        <motion.div
+                        <ScrollRevealCard
                             key={exp.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className={cn(
-                                "glass rounded-3xl p-8 md:p-12 flex flex-col relative",
-                                "hover:bg-white/[0.07] transition-colors duration-500"
-                            )}
+                            delay={i * 0.1}
+                            className="rounded-3xl p-8 md:p-12 flex flex-col relative"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between mb-8 pb-8 border-b border-white/10 gap-4">
                                 <div>
@@ -84,10 +72,9 @@ export const Experience = () => {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </ScrollRevealCard>
                     ))}
                 </div>
-            </div>
-        </section>
+        </SectionWrapper>
     );
 };
