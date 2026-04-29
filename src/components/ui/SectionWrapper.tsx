@@ -1,6 +1,11 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+const maxWidthMap: Record<string, string> = {
+    "4xl": "max-w-4xl",
+    "5xl": "max-w-5xl",
+};
+
 interface SectionWrapperProps {
     heading: string;
     children: React.ReactNode;
@@ -30,7 +35,7 @@ export const SectionWrapper = ({
                 className
             )}
         >
-            <div className={cn("mx-auto", `max-w-${maxWidth}`)}>
+            <div className={cn("mx-auto", maxWidthMap[maxWidth ?? "4xl"])}>
                 <div
                     className={cn(
                         "mb-20",
