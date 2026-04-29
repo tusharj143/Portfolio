@@ -132,7 +132,7 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({ framePaths }) => {
     }, [isLoaded, images]);
 
     return (
-        <div ref={containerRef} className={`h-[${HERO_HEIGHT_VH}vh] relative w-full`}>
+        <div ref={containerRef} className="relative w-full" style={{ height: `${HERO_HEIGHT_VH}vh` }}>
             <div className="sticky top-0 h-screen w-full overflow-hidden">
                 <canvas
                     ref={canvasRef}

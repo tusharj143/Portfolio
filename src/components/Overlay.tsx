@@ -28,9 +28,8 @@ export const Overlay = () => {
     return (
         <div
             ref={containerRef}
-            className={cn(
-                `absolute top-0 left-0 w-full h-[${HERO_HEIGHT_VH}vh] z-10 pointer-events-none`
-            )}
+            className="absolute top-0 left-0 w-full z-10 pointer-events-none"
+            style={{ height: `${HERO_HEIGHT_VH}vh` }}
         >
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Section 1 */}
